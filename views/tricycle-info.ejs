@@ -1,0 +1,76 @@
+<%- include ('partials/top') %>
+  .<div class="jumbotron jumbotron-fluid">
+    <div class="container text-center">
+      <h2>Tricycle Information</h2>
+      <hr class="my-2">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-6 col-md-12">
+      <table class="table table-striped">
+        <tbody>
+          <tr>
+            <td>Vehicle Identification Number</td>
+            <td><%= tricycle.vin %></td>
+          </tr>
+          <tr>
+            <td>Unique Metro Number</td>
+            <td><%= tricycle.metro_number %></td>
+          </tr>
+          <tr>
+            <td>Tricycle Plate Number</td>
+            <td><%= tricycle.vehicle_plate_number %></td>
+          </tr>
+          <tr>
+            <td>Engine Number</td>
+            <td><%= tricycle.engine_no %></td>
+          </tr>
+          <tr>
+            <td>Model</td>
+            <td><%= tricycle.vehicle_model %></td>
+          </tr>
+          <tr>
+            <td>Vehicle Color</td>
+            <td><%= tricycle.color %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-lg-6 col-md-12">
+      <table class="table table-striped">
+        <tbody>
+          <tr>
+            <td>Owner's Name</td>
+            <td><%= tricycle.owner_name %></td>
+          </tr>
+          <tr>
+            <td>Mode of Ownership</td>
+            <td><%= tricycle.mode_of_ownership %></td>
+          </tr>
+          <tr>
+            <td>Driver's Name</td>
+            <td><%= tricycle.driver.first_name + " " + tricycle.driver.middle_name + " " + tricycle.driver.last_name %></td>
+          </tr>
+          <tr>
+            <td>Driver's Mobile Phone</td>
+            <td><%= tricycle.driver.phone %></td>
+          </tr>
+          <tr>
+            <td>Vehicle Year</td>
+            <td><%= tricycle.vehicle_year %></td>
+          </tr>
+          <tr>
+            <td>Date Added In The System</td>
+            <td><%= tricycle.created_at.toGMTString() %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</main>
+</div>
+</div> 
+
+
+<%- include ('partials/bottom') %>

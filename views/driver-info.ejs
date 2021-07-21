@@ -1,0 +1,66 @@
+<%- include ('partials/top') %>
+  .<div class="jumbotron jumbotron-fluid">
+    <div class="container text-center">
+      <h2>Driver Information</h2>
+      <h3 class="lead"><%= driver.first_name + " " + driver.middle_name + " " + driver.last_name %></h5>
+      <hr class="my-2">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-2">
+      <div class="p-2 bordered">
+        <% /*  %>
+        <img src='<%= driver.passport.url %>' alt="" style="height: 200px; width: 160px;">
+        <% */ %>
+      </div>
+    </div>
+    <div class="col-md-10">
+      <table class="table table-striped">
+        <tbody>
+          <tr>
+            <td>Driver's License No.</td>
+            <td><%= driver.driver_license_no %></td>
+          </tr>
+          <tr>
+            <td>National Identification Number</td>
+            <td><%= driver.nin %></td>
+          </tr>
+          <tr>
+            <td>Full Name</td>
+            <td><%= driver.first_name + " " + driver.middle_name + " " + driver.last_name %></td>
+          </tr>
+          <tr>
+            <td>Date of Birth</td>
+            <td><%= driver.dob %></td>
+          </tr>
+          <tr>
+            <td>State of Origin</td>
+            <td><%= driver.state_of_origin %></td>
+          </tr>
+          <tr>
+            <td>Local Government Area</td>
+            <td><%= driver.lga_of_origin %></td>
+          </tr>
+          <tr>
+            <td>Mobile Phone</td>
+            <td><%= driver.phone %></td>
+          </tr>
+          <tr>
+            <td>Residence Address</td>
+            <td><%= driver.address %></td>
+          </tr>
+          <tr>
+            <td>Blood Group</td>
+            <td><%= driver.blood_group %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</main>
+</div>
+</div> 
+
+
+<%- include ('partials/bottom') %>

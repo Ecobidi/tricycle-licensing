@@ -1,0 +1,91 @@
+<%- include ('partials/top') %>
+  <div class="row space">
+    <div class="col-12 d-flex justify-content-between align-items-center underline pb-2">
+      <h3 class="title">Driver Details</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <div>
+        <% if (error_msg && error_msg.length > 0) { %>
+          <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <strong class="text-uppercase" ><%= error_msg %></strong> 
+          </div>
+          <script>
+            $(".alert").alert();
+          </script>
+        <% } %>
+      </div>
+    </div>
+  <% if (! edit) { %>
+    <div class="col-12">
+      <form action="/drivers/new" class="row" method="POST" enctype="multipart/form-data">
+        <div class="form-group col-4">
+          <label>Driver's License Number</label>
+          <input type="text" class="form-control" name="driver_license_no" required>
+        </div>
+        <div class="form-group col-4">
+          <label>Surname</label>
+          <input type="text" class="form-control" name="last_name" required>
+        </div>
+        <div class="form-group col-4">
+          <label>First Name</label>
+          <input type="text" class="form-control" name="first_name" required>
+        </div>
+        <div class="form-group col-4">
+          <label>Middle Name</label>
+          <input type="text" class="form-control" name="middle_name">
+        </div>
+        <div class="form-group col-4">
+          <label>National Identification Number (optional)</label>
+          <input type="text" class="form-control" name="nin">
+        </div>
+        <div class="form-group col-4">
+          <label>Mobile Phone No.</label>
+          <input type="text" class="form-control" name="phone">
+        </div>
+        <div class="form-group col-4">
+          <label>Address</label>
+          <input type="text" class="form-control" name="address" required>
+        </div>
+        <div class="form-group col-4">
+          <label>Date of Birth</label>
+          <input required type="date" class="form-control" name="dob">
+        </div>
+        <div class="form-group col-4">
+          <label>State of Origin</label>
+          <input required type="text" class="form-control" name="state_of_origin">
+        </div>
+        <div class="form-group col-4">
+          <label>L.G.A. of Origin</label>
+          <input required type="text" class="form-control" name="lga_of_origin">
+        </div>
+        <div class="form-group col-4">
+          <label>Blood Group</label>
+          <input type="text" class="form-control" name="blood_group">
+        </div>
+        <% /* %>
+        <div class="form-group col-4">
+          <label>Passport</label>
+          <input required type="file" class="form-control" name="passport" accept="image/jpg, image/png">
+        </div>
+        <% */ %>
+        <div class="col-4 offset-4">
+          <button type="submit" class="btn btn-primary btn-block">Submit</button>
+        </div>
+      </form>
+    </div>
+  <% } else { %>
+      
+  <% } %>
+  </div>
+
+</main>
+</div>
+</div> 
+
+<%- include ('partials/bottom') %>

@@ -1,0 +1,93 @@
+<%- include ('partials/top') %>
+  <div class="row space">
+    <div class="col-12 d-flex justify-content-between align-items-center underline pb-2">
+      <h3 class="title">Registered Tricycles</h3>
+      <div>
+        <a href="/tricycles/new" class="btn btn-primary">Register New Tricycle</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="row space">
+    <div class="col-12">
+      <div>
+        <% if (success_msg && success_msg.length > 0) { %>
+          <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <strong><%= success_msg %></strong> 
+          </div>
+          <script>
+            $(".alert").alert();
+          </script>
+        <% } %>
+      </div>
+      <div>
+        <% if (error_msg && error_msg.length > 0) { %>
+          <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <strong class="text-uppercase" ><%= error_msg %></strong> 
+          </div>
+          <script>
+            $(".alert").alert();
+          </script>
+        <% } %>
+      </div>
+    </div>
+    <div class="col-12">
+      <form id="search-form" method="GET" action="/tricycles?" class="form-inline">
+        <div class="form-group mb-4 mr-2">
+          <input required type="text" name="search" id="search-box" class="form-control" placeholder="Enter search term ...">
+        </div>
+        <div class="form-group mb-4 mr-2">
+          <select required name="mode" class="form-control">
+            <option value="metro_number">By Metro Number</option>
+            <option value="plate_number">By Plate Number</option>
+          </select>
+        </div>
+        <div class="form-group mb-4">
+          <button type="submit" class="btn btn-primary">Search</button>
+        </div>
+      </form>
+      <h4 class="font-weight-light text-center text-white bg-primary p-2 m-0 table-top">List of Registered Tricycles</h4>
+      <table class="table table-striped">
+        <thead class="font-weight-bold">
+          <tr>
+            <td>Tricycle V.I.N.</td>
+            <td>Metro No.</td>
+            <td>Owner's Name</td>
+            <td>Mode of Ownership</td>
+            <td>Driver's Name</td>
+            <td>Plate Number</td>
+            <td>Engine Number</td>
+            <td>Actions</td>
+          </tr>
+        </thead>
+        <tbody>
+          <% tricycles.forEach((m) => { %>
+            <tr>
+              <td><small><%= m.vin %></small></td>
+              <td><small><%= m.metro_number %></small></td>
+              <td><small><%= m.owner_name %></small></td>
+              <td><small><%= m.mode_of_ownership %></small></td>
+              <td><small><%= m.driver.first_name + " " + m.driver.middle_name + " " + m.driver.last_name %></small></td>
+              <td><small><%= m.vehicle_plate_number %></small></td>
+              <td><small><%= m.engine_no %></small></td>
+              <td>
+                <a href='<%= "/tricycles/view/" + m._id %>' class="btn btn-sm btn-primary">View</a>
+              </td>
+            </tr>
+          <% }) %>          
+        </tbody>
+      </table>
+    </div>
+  </div>
+</main>
+</div>
+</div> 
+
+
+<%- include ('partials/bottom') %>
